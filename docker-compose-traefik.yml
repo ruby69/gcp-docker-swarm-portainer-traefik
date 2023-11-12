@@ -1,0 +1,31 @@
+version: "3.7"
+
+networks:
+  frontend:
+    external: true
+
+services:
+  traefik:
+    image: traefik:v2.10
+    command:
+      - --api=true
+      - --api.insecure=true
+      - --api.dashboard=true
+      - --providers.docker=true
+      - --providers.docker.swarmMode=true
+      - --providers.docker.exposedbydefault=false
+      - --providers.docker.network=frontend
+      - --entrypoints.web.address=:80
+      - --entryPoints.web.forwardedHeaders.trustedIPs=10.0.0.0/16
+      - --entryPoints.web.forwardedHeaders.insecure
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - frontend
+    ports:
+      - "80:80"
+      - "8080:8080"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager

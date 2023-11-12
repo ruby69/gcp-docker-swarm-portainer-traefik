@@ -1,0 +1,28 @@
+version: "3.7"
+
+networks:
+  frontend:
+    external: true
+  portainer_network:
+    external: true
+
+services:
+  portainer:
+    image: portainer/portainer-ce:alpine
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /gluster_data/portainer_data:/data
+    networks:
+      - frontend
+      - portainer_network
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+        - "traefik.http.routers.portainer.rule=Host(`some.domain.xyz`)"
+        - "traefik.http.routers.portainer.service=portainer"
+        - "traefik.http.routers.portainer.entrypoints=web"
