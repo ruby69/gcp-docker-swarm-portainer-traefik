@@ -2,7 +2,7 @@
 On the GCP, reproducing the Traefik and the Portainer setup on 3 Node Docker Swarm.
 
 ## Create the VM instance
-In the Google Cloud console Create and start 3 VM and add 3 persistent disks for data sharing.
+In the Google Cloud console, create and start 3 VMs and add 3 persistent disks for using data sharing.
 
 ## Common Initialize
 ```
