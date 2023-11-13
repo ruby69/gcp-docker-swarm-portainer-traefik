@@ -49,7 +49,7 @@ $ sudo blkid /dev/sdb                       # check disk UUID
 
 $ sudo vi /etc/fstab
 LABEL=.....
-UUID=360ad7e0-b4c6-4fc0-822d-94fcf7c870f7 /gluster_disk ext4 discard,defaults,nofail 0 2
+UUID=3.....e0-b4c6-4fc0-822d-94.......f7 /gluster_disk ext4 discard,defaults,nofail 0 2
 ```
 
 ### Install the GlusterFS
@@ -127,11 +127,11 @@ $ sudo groupadd docker; sudo gpasswd -a ${USER} docker
 Initialize Swarm on Manager(node-1)
 ```
 $ sudo docker swarm init --advertise-addr 10.178.0.1
-==> sudo docker swarm join --token SWMTKN-1-2cgy6aua1lb3b5ncxjcm9yx91oy01tsi6dmunf5wwicr1wk2ur-cvlskbiwt2yaqpsbi6cy5gucu 10.178.0.1:2377
+==> sudo docker swarm join --token SWMTKN-1-2cgy.....3b5ncxjcm9.....oy01tsi6dmu.....wicr....k2ur-cvlskb.....qpsb.....ucu 10.178.0.1:2377
 ```
 Join Worker Node to the Swarm(node-2, node-3)
 ```
-$ sudo docker swarm join --token SWMTKN-1-2cgy6aua1lb3b5ncxjcm9yx91oy01tsi6dmunf5wwicr1wk2ur-cvlskbiwt2yaqpsbi6cy5gucu 10.178.0.1:2377
+$ sudo docker swarm join --token SWMTKN-1-2cgy.....3b5ncxjcm9.....oy01tsi6dmu.....wicr....k2ur-cvlskb.....qpsb.....ucu  10.178.0.1:2377
 ==> This node joined a swarm as a worker.
 ```
 Lists nodes from the Manager(node-1)
