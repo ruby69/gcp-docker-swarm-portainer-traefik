@@ -1,6 +1,8 @@
 # Docker Swarm, Traefik and Portainer on the GCP
 On the GCP, reproducing the Traefik and the Portainer setup on 3 Node Docker Swarm.
 
+![GCP_Docker_Swarm_Traefik_Portainer](./images/images001.jpg)
+
 ## Create the VM instance
 In the Google Cloud console, create and start 3 VMs and add 3 persistent disks for using data sharing.
 
